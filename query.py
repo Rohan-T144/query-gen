@@ -10,8 +10,8 @@ from mlx.utils import tree_flatten
 from sentence_transformers import SentenceTransformer, util
 
 import utils as lora_utils
-from models import LoRALinear
 from data_gen import table_id2name
+from models import LoRALinear
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -202,5 +202,5 @@ if __name__ == "__main__":
     background = f"Database result is {sql_result}" if sql_result else ""
     model.load_weights('default.npz', strict=False)
     answer = gen_llm_output(f"Answer the following question in a full sentence, as if you were wikipedia. Use the provided data: {args.query}\n{background}.", model, tokenizer)
-    
+
     print(answer)
