@@ -1,0 +1,6 @@
+data/
+wikisql_data/
+*.pkl
+*.npz
+.python-version
+__pycache__
