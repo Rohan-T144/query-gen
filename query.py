@@ -161,8 +161,8 @@ if __name__ == "__main__":
     logging.info("Loading pretrained model")
     model, tokenizer, _ = lora_utils.load(args.model, {})
 
-    if not os.path.exists('default.npz'):
-        model.save_weights('default.npz')
+    # if not os.path.exists('default.npz'):
+    #     model.save_weights('default.npz')
     # Freeze all layers other than LORA linears
     model.freeze()
     for l in model.model.layers[len(model.model.layers) - args.lora_layers :]:
@@ -200,7 +200,7 @@ if __name__ == "__main__":
     logging.info(sql_result)
 
     background = f"Database result is {sql_result}" if sql_result else ""
-    model.load_weights('default.npz', strict=False)
+    # model.load_weights('default.npz', strict=False)
     answer = gen_llm_output(f"Answer the following question in a full sentence, as if you were wikipedia. Use the provided data: {args.query}\n{background}.", model, tokenizer)
 
     print(answer)

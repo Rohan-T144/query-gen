@@ -2,5 +2,6 @@ data/
 wikisql_data/
 *.pkl
 *.npz
+.venv/
 .python-version
 __pycache__
